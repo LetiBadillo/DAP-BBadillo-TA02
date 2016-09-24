@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Puro rock</title> 
+    <!-- Bootstrap -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+
+  </head>
+<body>
+<style> 
+body{
+  background: #0C090A;
+  padding-top: 5%;
+}
+.box{
+  background: #F0FFFF;
+  padding-bottom: 5%;
+  border-radius: 2px;
+  height: 300px;
+  border: 3px red;
+  border-style: dashed;
+  /*#C8B560  #C9BE62*/
+ 
+ }
+ img{
+  padding-top: 11%;
+  align-items: center;
+
+ }
+</style>
+
+ 
+
+    <br>
+
+<div class="container">
+  <div class="row">
+  <div class="col-lg-12">
+    <h1 class="text-center" style="color: red;">Jueguillos locos</h1> 
+    <hr class="col-lg-6 col-lg-offset-3">
+
+<div class="text-center col-lg-12">
+        <button type="button" class="btn btn-success btn-lg" id="jugar">Jugar</button>
+        <button type="button" class="btn btn-danger btn-lg" id="stop">Stop</button>
+      </div>
+
+  </div>
+  </div>
+  </div>
+
+
+<br>
+<div class="container" id="dados" style="display: none;">
+  <div class="row">
+  <div class="col-lg-6 col-lg-offset-3">
+  <div class="box">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="dis">
+            
+            
+        </div>
+        </div>
+     </div> <!--End box-->   
+  </div> <!--End row-->
+</div> <!--End container-->
+
+<div id="words"></div>
+
+<br>
+ <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script>
+var next=new Image();
+var a;
+
+$("#jugar").click(function(e){
+        
+        a=2;
+        $("#dados").show();
+   
+        var images = ["images/1.png", "images/2.png", "images/3.png", "images/4.png", "images/5.png", "images/6.png"];
+
+        
+        $("#dis").html("<img id='d' class='center-block 'src='" +images[0] +"'>").show()
+
+        setImage(2);
+        
+
+      function setImage(id) {
+          if (a==2){
+          images.push(images.shift())
+              next.onload=function(){
+                $("#dis img").attr("src", this.src)
+              }
+          next.src= images[0] 
+        return setTimeout(setImage, 180);
+            
+      }}
+      if(a==1){
+        $("#dis").html("<img id='d' class='center-block 'src='" +images[0] +"'>").show()
+      }
+});
+
+ $("#stop").click(function(e){
+          a=1;
+        });
+
+
+
+
+
+</script>
+</body>
+
+</html>
